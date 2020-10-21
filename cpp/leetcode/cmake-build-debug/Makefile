@@ -143,6 +143,60 @@ leetcode/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/build
 .PHONY : leetcode/fast
 
+lt916.o: lt916.cpp.o
+
+.PHONY : lt916.o
+
+# target to build an object file
+lt916.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/lt916.cpp.o
+.PHONY : lt916.cpp.o
+
+lt916.i: lt916.cpp.i
+
+.PHONY : lt916.i
+
+# target to preprocess a source file
+lt916.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/lt916.cpp.i
+.PHONY : lt916.cpp.i
+
+lt916.s: lt916.cpp.s
+
+.PHONY : lt916.s
+
+# target to generate assembly for a file
+lt916.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/lt916.cpp.s
+.PHONY : lt916.cpp.s
+
+lt951.o: lt951.cpp.o
+
+.PHONY : lt951.o
+
+# target to build an object file
+lt951.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/lt951.cpp.o
+.PHONY : lt951.cpp.o
+
+lt951.i: lt951.cpp.i
+
+.PHONY : lt951.i
+
+# target to preprocess a source file
+lt951.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/lt951.cpp.i
+.PHONY : lt951.cpp.i
+
+lt951.s: lt951.cpp.s
+
+.PHONY : lt951.s
+
+# target to generate assembly for a file
+lt951.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/lt951.cpp.s
+.PHONY : lt951.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -179,6 +233,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... leetcode"
+	@echo "... lt916.o"
+	@echo "... lt916.i"
+	@echo "... lt916.s"
+	@echo "... lt951.o"
+	@echo "... lt951.i"
+	@echo "... lt951.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
