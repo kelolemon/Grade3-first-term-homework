@@ -23,11 +23,11 @@ func Register(ctx iris.Context) {
 	collection := Client.Database("Pic").Collection("UserInfo")
 
 	// find username
-	filter := bson.M{"email": Name}
+	filter := bson.M{"username": Name}
 	err := collection.FindOne(context.TODO(), filter).Decode(&result)
 	if err == nil {
 		RtData := RtMsg {
-			Msg: "Email has existed",
+			Msg: "Name has existed",
 			Code: -1,
 		}
 		_, _ = ctx.JSON(RtData)

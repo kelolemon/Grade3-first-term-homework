@@ -17,7 +17,7 @@ func Login(ctx iris.Context) {
 	err := collection.FindOne(context.TODO(), filter).Decode(&result)
 	if err != nil {
 		RtData := RtMsg {
-			Msg: "Email does not exist",
+			Msg: "Name does not exist",
 			Code: -1,
 		}
 		_, _ = ctx.JSON(RtData)
