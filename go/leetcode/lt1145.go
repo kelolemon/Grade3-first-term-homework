@@ -7,7 +7,13 @@ type TreeNode struct {
 }
 
 func count(x *TreeNode) (int, int) {
-	
+	if x == nil {
+		return -1, 0
+	}
+
+	ll, lr := count(x.Left)
+	rl, rr := count(x.Right)
+	return ll + lr + 1, rl + rr + 1
 }
 
 func search(node *TreeNode,x int) (int, int){
@@ -16,7 +22,7 @@ func search(node *TreeNode,x int) (int, int){
 	}
 
 	if node.Val == x {
-		count(node)
+		return count(node)
 	}
 
 	l0, l1 := search(node.Left, x)
@@ -28,5 +34,18 @@ func search(node *TreeNode,x int) (int, int){
 }
 
 func btreeGameWinningMove(root *TreeNode, n int, x int) bool {
+	leftSum, rightSum := search(root, x)
+	if n - (leftSum + rightSum + 1) > leftSum + rightSum + 1 {
+		return true
+	}
 
+	if leftSum > n - leftSum {
+		return true
+	}
+
+	if rightSum > n - rightSum {
+		return true
+	}
+
+	return false
 }
