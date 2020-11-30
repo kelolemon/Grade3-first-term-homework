@@ -20,13 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e773b9-8e70-497c-9bdd-a241466d3137" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/computer-graphics-exp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/three.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/city.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/control.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/three.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,13 +66,17 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/computer-graphics-exp/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="city.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/scripts/city.js" working-dir="$PROJECT_DIR$/scripts">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="Node.js.city.js" />
       </list>
     </recent_temporary>
   </component>
@@ -86,6 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605165763225</updated>
       <workItem from="1605165764869" duration="2153000" />
+      <workItem from="1605526649084" duration="5722000" />
     </task>
     <servers />
   </component>
@@ -102,6 +106,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -111,6 +116,26 @@
       <screen x="0" y="23" width="1680" height="977" />
     </state>
     <state x="528" y="235" key="#HTTP_Proxy/0.23.1680.977@0.23.1680.977" timestamp="1605167775665" />
+    <state x="578" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605527910659">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="578" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1605527910659" />
+    <state width="1659" height="295" key="GridCell.Tab.0.bottom" timestamp="1605675244237">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1605675244237" />
+    <state width="1659" height="295" key="GridCell.Tab.0.center" timestamp="1605675244236">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1605675244236" />
+    <state width="1659" height="295" key="GridCell.Tab.0.left" timestamp="1605675244234">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1605675244234" />
+    <state width="1659" height="295" key="GridCell.Tab.0.right" timestamp="1605675244236">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1605675244236" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1605168124955">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
