@@ -28,7 +28,7 @@ func main() {
 
 	api.Post("/UserInfo", src.GetUser)
 
-	api.Get("/img/{filename}", src.GetImg)
+	api.Get("/img", src.GetImg)
 
 	api.Post("/file", src.GetFileList)
 
