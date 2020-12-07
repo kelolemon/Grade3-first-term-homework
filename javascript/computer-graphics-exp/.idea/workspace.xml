@@ -20,12 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e773b9-8e70-497c-9bdd-a241466d3137" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/city.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/control.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/final.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/orbit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/problem-1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/three.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../go/leetcode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../go/leetcode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/computer-graphics-exp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/computer-graphics-exp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/three.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +93,12 @@
       <updated>1605165763225</updated>
       <workItem from="1605165764869" duration="2153000" />
       <workItem from="1605526649084" duration="5722000" />
+      <workItem from="1607157144467" duration="241000" />
+      <workItem from="1607157520331" duration="11000" />
+      <workItem from="1607157534167" duration="1000" />
+      <workItem from="1607157766811" duration="3214000" />
+      <workItem from="1607261002236" duration="3029000" />
+      <workItem from="1607277168500" duration="1527000" />
     </task>
     <servers />
   </component>
@@ -110,35 +119,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="528" y="235" key="#HTTP_Proxy" timestamp="1605167775665">
-      <screen x="0" y="23" width="1680" height="977" />
-    </state>
-    <state x="528" y="235" key="#HTTP_Proxy/0.23.1680.977@0.23.1680.977" timestamp="1605167775665" />
-    <state x="578" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605527910659">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="578" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1605527910659" />
-    <state width="1659" height="295" key="GridCell.Tab.0.bottom" timestamp="1605675244237">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1659" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1605675244237" />
-    <state width="1659" height="295" key="GridCell.Tab.0.center" timestamp="1605675244236">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1659" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1605675244236" />
-    <state width="1659" height="295" key="GridCell.Tab.0.left" timestamp="1605675244234">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1659" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1605675244234" />
-    <state width="1659" height="295" key="GridCell.Tab.0.right" timestamp="1605675244236">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1659" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1605675244236" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1605168124955">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1605168124955" />
   </component>
 </project>
