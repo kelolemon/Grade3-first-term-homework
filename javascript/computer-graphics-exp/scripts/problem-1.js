@@ -1,28 +1,50 @@
 const project = () => {
     // create scene
-    const scene = new THREE.Scene();
+    var scene = new THREE.Scene();
+    //  平面
 
-    // create camera
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var plane = function(u, v, target) {
+        var r = 50
+        var zeta = u * 2 * Math.PI
+        var phi = v * 2 * Math.PI
+        var x = r * Math.cos(zeta) * Math.cos(phi);
+        var y = r * Math.cos(zeta) * Math.sin(phi);
+        var z = r * Math.sin(zeta);
+        target.set(x, y, z);
+    }
 
-    // create renderer
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    var planeGeometry = new THREE.ParametricGeometry(plane, 100, 100);
+
+    var planeMaterial = new THREE.MeshPhongMaterial({
+        color:0x0000ff,//三角面颜色
+        side:THREE.DoubleSide//两面可见
+    });
+    planeMaterial.wireframe  = true;
+    var planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
+    scene.add(planeMesh);
+    //环境光
+    var ambient=new THREE.AmbientLight(0x444444);
+    scene.add(ambient);
+
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    //窗口宽高比
+    var k = width / height;
+    //三维场景缩放系数
+    var s = 150;
+    //创建相机对象
+    var camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 1000);
+    //设置相机位置
+    camera.position.set(200, 300, 200);
+    //设置相机方向(指向的场景对象)
+    camera.lookAt(scene.position);
+
+    // 创建渲染器对象
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(width, height);
+    //设置背景颜色
+    renderer.setClearColor(0xb9d3ff, 1);
     document.body.appendChild(renderer.domElement);
-
-    // create object
-    const geometry = new THREE.BoxGeometry(5, 1, 1);
-    const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-    camera.position.z = 5;
-
-    // loop
-    const animate = function () {
-        requestAnimationFrame(animate);
-        cube.rotation.x += 0.1;
-        cube.rotation.y += 0.1;
-        renderer.render(scene, camera);
-    };
-    animate();
+    //执行渲染操作
+    renderer.render(scene, camera);
 }

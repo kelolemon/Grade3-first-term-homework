@@ -31,7 +31,7 @@ const sky_box = () => {
     const material_arr = []
     for (let i = 0; i < 6; i++ ) {
         material_arr.push(new THREE.MeshBasicMaterial({
-            map: new THREE.ImageUtils.loadTexture(part[i] + suffix),
+            map: THREE.ImageUtils.loadTexture(part[i] + suffix),
             side: THREE.BackSide
         }))
     }
