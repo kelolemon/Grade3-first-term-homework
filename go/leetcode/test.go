@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 type ListNode struct {
 	val int
 	next *ListNode
@@ -27,27 +23,5 @@ func judge(head ListNode) bool {
 }
 
 func main() {
-	node1 := ListNode{
-		val: 1,
-		next: nil,
-	}
-
-	node2 := ListNode{
-		val: 2,
-		next: nil,
-	}
-
-	node3 := ListNode{
-		val: 2,
-		next: nil,
-	}
-
-	node4 := ListNode{
-		val: 1,
-		next: nil,
-	}
-	node1.next = &node2
-	node2.next = &node3
-	node3.next = &node4
-	fmt.Println(judge(node1))
+	
 }

@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f13041d8-5963-4914-8535-1326893714e3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../javascript/computer-graphics-exp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../javascript/computer-graphics-exp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javascript/computer-graphics-exp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javascript/computer-graphics-exp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javascript/computer-graphics-exp/scripts/final.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../javascript/computer-graphics-exp/scripts/final.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javascript/computer-graphics-exp/scripts/problem-1.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../javascript/computer-graphics-exp/scripts/problem-1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,39 +101,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="636" y="459" key="#GOROOT" timestamp="1606208874147">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="636" y="459" key="#GOROOT/0.0.1680.1050@0.0.1680.1050" timestamp="1606208874147" />
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602934174722">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602934174722" />
-    <state width="1638" height="222" key="GridCell.Tab.0.bottom" timestamp="1606217628407">
-      <screen x="0" y="25" width="1680" height="969" />
-    </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1606210116085" />
-    <state width="1638" height="222" key="GridCell.Tab.0.bottom/0.25.1680.969@0.25.1680.969" timestamp="1606217628407" />
-    <state width="1638" height="222" key="GridCell.Tab.0.center" timestamp="1606217628406">
-      <screen x="0" y="25" width="1680" height="969" />
-    </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1606210116084" />
-    <state width="1638" height="222" key="GridCell.Tab.0.center/0.25.1680.969@0.25.1680.969" timestamp="1606217628406" />
-    <state width="1638" height="222" key="GridCell.Tab.0.left" timestamp="1606217628406">
-      <screen x="0" y="25" width="1680" height="969" />
-    </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1606210116084" />
-    <state width="1638" height="222" key="GridCell.Tab.0.left/0.25.1680.969@0.25.1680.969" timestamp="1606217628406" />
-    <state width="1638" height="222" key="GridCell.Tab.0.right" timestamp="1606217628406">
-      <screen x="0" y="25" width="1680" height="969" />
-    </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1606210116085" />
-    <state width="1638" height="222" key="GridCell.Tab.0.right/0.25.1680.969@0.25.1680.969" timestamp="1606217628406" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1606884925940">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1606884925940" />
   </component>
 </project>
