@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1e773b9-8e70-497c-9bdd-a241466d3137" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../go/leetcode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../go/leetcode/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="01285b25-86ce-4a58-8aae-b2ae83e859bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/OrbitControls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/control.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/three.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/computer-graphics-exp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/computer-graphics-exp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/city.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/control.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/final.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/orbit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/problem-1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/three.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1kBEoypp3vP5ylXdXnarcUYEDbI" />
+  <component name="ProjectId" id="1lNLv8FYkR1dkp3GtOqVan5Jnoy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -48,10 +45,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -59,38 +55,19 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/computer-graphics-exp/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="city.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/scripts/city.js" working-dir="$PROJECT_DIR$/scripts">
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="Node.js.city.js" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f1e773b9-8e70-497c-9bdd-a241466d3137" name="Default Changelist" comment="" />
-      <created>1605165763225</created>
+      <changelist id="01285b25-86ce-4a58-8aae-b2ae83e859bd" name="Default Changelist" comment="" />
+      <created>1607432831946</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1605165763225</updated>
-      <workItem from="1605165764869" duration="2153000" />
-      <workItem from="1605526649084" duration="5722000" />
-      <workItem from="1607157144467" duration="241000" />
-      <workItem from="1607157520331" duration="11000" />
-      <workItem from="1607157534167" duration="1000" />
-      <workItem from="1607157766811" duration="3214000" />
-      <workItem from="1607261002236" duration="3029000" />
-      <workItem from="1607277168500" duration="3901000" />
+      <updated>1607432831946</updated>
+      <workItem from="1607432834196" duration="5285000" />
+      <workItem from="1607441612889" duration="2311000" />
     </task>
     <servers />
   </component>

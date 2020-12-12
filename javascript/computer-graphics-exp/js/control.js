@@ -46,17 +46,18 @@ function Control(object, domElement) {
         this.domElement.setAttribute('tabindex', -1);
     }
 
-    this.handleResize = function () {
+    this.handleResize = function() {
         if (this.domElement === document) {
             this.viewHalfX = window.innerWidth / 2;
             this.viewHalfY = window.innerHeight / 2;
-        } else {
+        }
+        else {
             this.viewHalfX = this.domElement.offsetWidth / 2;
             this.viewHalfY = this.domElement.offsetHeight / 2;
         }
     }
 
-    this.onMouseDown = function (event) {
+    this.onMouseDown = function(event) {
         if (this.domElement !== document) {
             this.domElement.focus();
         }
@@ -78,7 +79,7 @@ function Control(object, domElement) {
         this.mouseDragOn = true
     }
 
-    this.onMouseUp = function (event) {
+    this.onMouseUp = function(event) {
         event.preventDefault();
         event.stopPropagation();
 
@@ -96,7 +97,7 @@ function Control(object, domElement) {
         this.mouseDragOn = false;
     }
 
-    this.onMouseMove = function (event) {
+    this.onMouseMove = function(event) {
         if (this.domElement === document) {
             this.mouseX = event.pageX - this.viewHalfX
             this.mouseY = event.pageY - this.viewHalfY
@@ -106,88 +107,75 @@ function Control(object, domElement) {
         }
     }
 
-    this.onKeyDown = function (event) {
+    this.onKeyDown = function(event) {
         //event.preventDefault();
 
         switch (event.keyCode) {
             case 38: /*up*/
             case 87:
-                /*W*/
-                this.moveForward = true;
+                /*W*/ this.moveForward = true;
                 break;
 
             case 37: /*left*/
             case 65:
-                /*A*/
-                this.moveLeft = true;
+                /*A*/ this.moveLeft = true;
                 break;
 
             case 40: /*down*/
             case 83:
-                /*S*/
-                this.moveBackward = true;
+                /*S*/ this.moveBackward = true;
                 break;
 
             case 39: /*right*/
             case 68:
-                /*D*/
-                this.moveRight = true;
+                /*D*/ this.moveRight = true;
                 break;
 
             case 82:
-                /*R*/
-                this.moveUp = true;
+                /*R*/ this.moveUp = true;
                 break;
             case 70:
-                /*F*/
-                this.moveDown = true;
+                /*F*/ this.moveDown = true;
                 break;
 
             case 81:
-                /*Q*/
-                this.freeze = !this.freeze;
+                /*Q*/ this.freeze = !this.freeze;
                 break;
         }
     }
 
-    this.onKeyUp = function (event) {
+    this.onKeyUp = function(event) {
         switch (event.keyCode) {
             case 38: /*up*/
             case 87:
-                /*W*/
-                this.moveForward = false;
+                /*W*/ this.moveForward = false;
                 break;
 
             case 37: /*left*/
             case 65:
-                /*A*/
-                this.moveLeft = false;
+                /*A*/ this.moveLeft = false;
                 break;
 
             case 40: /*down*/
             case 83:
-                /*S*/
-                this.moveBackward = false;
+                /*S*/ this.moveBackward = false;
                 break;
 
             case 39: /*right*/
             case 68:
-                /*D*/
-                this.moveRight = false;
+                /*D*/ this.moveRight = false;
                 break;
 
             case 82:
-                /*R*/
-                this.moveUp = false;
+                /*R*/ this.moveUp = false;
                 break
             case 70:
-                /*F*/
-                this.moveDown = false
+                /*F*/ this.moveDown = false
                 break;
         }
     };
 
-    this.update = function (delta) {
+    this.update = function(delta) {
         if (this.freeze) {
             return
         }
@@ -248,39 +236,28 @@ function Control(object, domElement) {
             )
         }
 
-        var targetPosition = this.target, position = this.object.position;
+        var targetPosition = this.target,position = this.object.position;
 
-        targetPosition.x = position.x + 100 * Math.sin(this.phi) * Math.cos(this.theta);
+        targetPosition.x =position.x + 100 * Math.sin(this.phi) * Math.cos(this.theta);
         targetPosition.y = position.y + 100 * Math.cos(this.phi);
-        targetPosition.z = position.z + 100 * Math.sin(this.phi) * Math.sin(this.theta);
+        targetPosition.z =position.z + 100 * Math.sin(this.phi) * Math.sin(this.theta);
 
         this.object.lookAt(targetPosition);
     }
 
     this.domElement.addEventListener(
         'contextmenu',
-        function (event) {
+        function(event) {
             event.preventDefault()
         },
         false
     )
 
-    this.domElement.addEventListener(
-        'mousemove',
-        bind(this, this.onMouseMove),
-        false
-    )
-    this.domElement.addEventListener(
-        'mousedown',
-        bind(this, this.onMouseDown),
-        false
-    )
-    this.domElement.addEventListener('mouseup', bind(this, this.onMouseUp), false)
     this.domElement.addEventListener('keydown', bind(this, this.onKeyDown), false)
     this.domElement.addEventListener('keyup', bind(this, this.onKeyUp), false)
 
     function bind(scope, fn) {
-        return function () {
+        return function() {
             fn.apply(scope, arguments)
         }
     }

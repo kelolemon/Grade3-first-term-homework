@@ -1,27 +1,43 @@
 package main
 
-type ListNode struct {
+import "fmt"
+
+type Node struct {
+	next *Node
 	val int
-	next *ListNode
 }
 
-func judge(head ListNode) bool {
-	array := make([]int, 0)
-	for x := head; x.next != nil; x = *x.next{
-		array = append(array, x.val)
-		if x.next != nil && x.next.next == nil {
-			array = append(array, x.next.val)
-		}
+type List struct {
+	root *Node
+	tail *Node
+}
+
+func (list *List) add(x int) {
+	next := Node{
+		next: nil,
+		val: x,
 	}
 
-	for i := 0; i < len(array) / 2; i++ {
-		if array[i] != array[len(array) - 1 - i] {
-			return false
-		}
+	if list.root == nil {
+		list.root = &next
+		list.tail = list.root
+		return
 	}
-	return true
+
+	list.tail.next = &next
+	list.tail = &next
 }
 
 func main() {
-	
+	list := &List{
+		root: nil,
+		tail: nil,
+	}
+
+	list.add(1)
+	list.add(2)
+	list.add(114514)
+	for x := list.root; x != nil; x = x.next {
+		fmt.Println(x.val)
+	}
 }
