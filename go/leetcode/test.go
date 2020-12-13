@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 type Node struct {
 	next *Node
@@ -28,16 +31,17 @@ func (list *List) add(x int) {
 	list.tail = &next
 }
 
-func main() {
-	list := &List{
-		root: nil,
-		tail: nil,
-	}
+func judge(a interface{}) {
+	defer func() {
+		err := recover()
+		fmt.Println(err)
+	}()
+	x := reflect.ValueOf(a)
+	x.IsNil()
+}
 
-	list.add(1)
-	list.add(2)
-	list.add(114514)
-	for x := list.root; x != nil; x = x.next {
-		fmt.Println(x.val)
-	}
+func main() {
+	a := [4]int{1, 2, 3, 4}
+	judge(a)
+	fmt.Println("end")
 }
