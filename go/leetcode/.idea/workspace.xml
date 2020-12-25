@@ -20,6 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f13041d8-5963-4914-8535-1326893714e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pretest1.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../saptest/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../saptest/.idea/saptest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../saptest/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../saptest/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../cpp/leetcode/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../cpp/leetcode/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../cpp/leetcode/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +67,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="Go Build.go build test.go">
+  <component name="RunManager" selected="Go Build.go build pretest1.go">
     <configuration name="go build 5.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="leetcode" />
       <working_directory value="$PROJECT_DIR$" />
@@ -77,6 +84,14 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="go build pretest1.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="leetcode" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/pretest1.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build test.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="leetcode" />
       <working_directory value="$PROJECT_DIR$" />
@@ -87,6 +102,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build pretest1.go" />
         <item itemvalue="Go Build.go build test.go" />
         <item itemvalue="Go Build.go build 5.go" />
         <item itemvalue="Go Build.go build lt165.go" />

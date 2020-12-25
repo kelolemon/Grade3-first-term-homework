@@ -238,23 +238,251 @@ const init = () => {
     city.receiveShadow=true;
     scene.add(city);
 
-    camera.position.z = 30
-    let updateFcts = [];
-    const controls = new Control(camera);
-    controls.movementSpeed = 10;
-    controls.lookSpeed = 0.05;
-    controls.lookVertical = true;
-    updateFcts.push(function(delta, now) {controls.update(delta)});
-    updateFcts.push(() => {
-        renderer.render(scene, camera)
-        mouse_control.update()
-    });
-    let lastTimeMsec = null;
-    requestAnimationFrame(function animate(nowMsec) {
-        requestAnimationFrame(animate);
-        lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60;
-        let deltaMsec = Math.min(200, nowMsec - lastTimeMsec);
-        lastTimeMsec = nowMsec;
-        updateFcts.forEach(function(updateFn) {updateFn(deltaMsec / 1000, nowMsec / 1000)});
-    });
+    camera.position.set(-20, 0, 0);
+    camera.lookAt(scene.position);
+    scene.add(camera);
+
+
+    let controls;
+    let moveForward = false;
+    let moveBackward = false;
+    let moveLeft = false;
+    let moveRight = false;
+    let canJump = false;
+    let spaceUp = true;
+    let prevTime = performance.now();
+    let velocity = new THREE.Vector3(0, 0, 0);
+    let direction = new THREE.Vector3(0, 0, 0);
+    let rotation = new THREE.Vector3(0, 0, 0);
+    let upRaycaster, downRaycaster, horizontalRaycaster, horizontalRaycasterF;
+    const speed = 1000;
+    const upSpeed = 500;
+    const [sizeW, sizeH, segW, segH] = [60, 40, 24, 16];
+    let flags = [];
+
+    function initPointerLockControls() {
+        controls = new THREE.PointerLockControls( camera, document.body );
+        // 设置第一人称的初始位置，需要与后面相对应
+        controls.getObject().position.set(760, -120, -2470);
+        scene.add(controls.getObject());
+
+        const blocker = document.getElementById('blocker');
+        const instructions = document.getElementById('instructions');
+        const havePointerLock =
+            'pointerLockElement' in document ||
+            'mozPointerLockElement' in document ||
+            'webkitPointerLockElement' in document;
+        if (havePointerLock) {
+            instructions.addEventListener(
+                'click',
+                function() {
+                    controls.lock();
+                },
+                false
+            );
+            controls.addEventListener('lock', function() {
+                instructions.style.display = 'none';
+                blocker.style.display = 'none';
+            })
+            controls.addEventListener('unlock', function() {
+                blocker.style.display = 'block';
+                instructions.style.display = '';
+            })
+        } else {
+            instructions.innerHTML =
+                'Your browser does not support Pointer Lock API, please change your browser';
+        }
+
+        const onKeyDown = function(event) {
+            switch (event.keyCode) {
+                case 38: // up
+                case 87: // w
+                    moveForward = true;
+                    break;
+                case 37: // left
+                case 65: // a
+                    moveLeft = true;
+                    break;
+                case 40: // down
+                case 83: // s
+                    moveBackward = true;
+                    break;
+                case 39: // right
+                case 68: // d
+                    moveRight = true;
+                    break;
+                case 32: // space
+                    if (canJump && spaceUp) velocity.y += upSpeed; //垂直初速度
+                    canJump = false;
+                    spaceUp = false;
+                    break;
+            }
+        }
+        const onKeyUp = function(event) {
+            switch (event.keyCode) {
+                case 38: // up
+                case 87: // w
+                    moveForward = false;
+                    break;
+                case 37: // left
+                case 65: // a
+                    moveLeft = false;
+                    break;
+                case 40: // down
+                case 83: // s
+                    moveBackward = false;
+                    break;
+                case 39: // right
+                case 68: // d
+                    moveRight = false;
+                    break;
+                case 32: // space
+                    spaceUp = true;
+                    break;
+            }
+        }
+        document.addEventListener('keydown', onKeyDown, false);
+        document.addEventListener('keyup', onKeyUp, false);
+
+        // 使用 Raycaster 实现简单碰撞检测
+        downRaycaster = new THREE.Raycaster(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, -1, 0), 0, 10);
+        horizontalRaycaster = new THREE.Raycaster(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 0), 0, 10);
+        horizontalRaycasterF = new THREE.Raycaster(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 0), 0, 10);
+    }
+
+    function pointerLockControlsRender() {
+        const time = performance.now();
+
+        if ( controls.isLocked === true ) {
+            //获取控制器对象
+            const control = controls.getObject();
+            //获取刷新时间
+            const delta = ( time - prevTime ) / 1000;
+
+            //velocity为每次的速度，为了保证有过渡
+            velocity.x -= velocity.x * 10.0 * delta;
+            velocity.z -= velocity.z * 10.0 * delta;
+            velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
+
+            //获取当前按键的方向并获取朝哪个方向移动
+            //向前移动，z值（代表前后方向）为1，向后移动，z值为-1
+            direction.z = (Number( moveForward ) - Number( moveBackward ));
+            //向右移动，x值（代表前后方向）为1，向左移动，x值为-1
+            direction.x = (Number( moveRight ) - Number( moveLeft ));
+            //将法向量的值归一化
+            direction.normalize();
+
+            //判断是否接触到了模型
+            let vec = new THREE.Vector3(0, 0, 0);
+            // .getWorldDirection ( target : Vector3 ) : Vector3
+            // target — 调用该函数的结果将复制给该Vector3对象。
+            // 返回一个能够表示当前摄像机所  正视的 世界空间方向的Vector3对象。 （注意：摄像机俯视时，其Z轴坐标为负。）
+            control.getWorldDirection(vec);
+            //乘上一个矩阵消除y轴上的值，这样仰视的时候和平视一样处理，碰到阻挡一样过不去
+            let rotationF = new THREE.Vector3(0, 0, 0).copy(rotation);
+            let vecF = new THREE.Vector3(0, 0, 0).copy(vec);
+            rotation.copy(vec.multiply(new THREE.Vector3(-1, 0, -1))); //左右方向碰撞检测
+            rotationF.copy(vecF.multiply(new THREE.Vector3(1, 0, 1))); //前后方向碰撞检测
+
+            //判断鼠标按下的方向
+            const m = new THREE.Matrix4();
+
+            if(direction.z > 0){
+                if(direction.x > 0)
+                    m.makeRotationY(Math.PI/4);
+                else if(direction.x < 0)
+                    m.makeRotationY(-Math.PI/4);
+                else
+                    m.makeRotationY(0);
+            }
+            else if(direction.z < 0) {
+                if (direction.x > 0)
+                    m.makeRotationY(Math.PI / 4 * 3);
+                else if (direction.x < 0)
+                    m.makeRotationY(-Math.PI / 4 * 3);
+                else
+                    m.makeRotationY(Math.PI);
+            }
+            else{
+                if(direction.x > 0)
+                    m.makeRotationY(Math.PI/2);
+                else if(direction.x < 0)
+                    m.makeRotationY(-Math.PI/2);
+            }
+            //给向量使用变换矩阵
+            rotation.applyMatrix4(m);
+            rotationF.applyMatrix4(m);
+
+            //这个水平方向的向量现在与第一人称的方向一致
+            horizontalRaycasterF.set( control.position , rotationF );
+            horizontalRaycaster.set( control.position , rotation );
+
+            let horizontalIntersections = horizontalRaycaster.intersectObjects( scene.children, true );
+            const horOnObject = horizontalIntersections.length > 0;
+            let horizontalIntersectionsF = horizontalRaycasterF.intersectObjects( scene.children, true );
+            const horOnObjectF = horizontalIntersectionsF.length > 0;
+
+            //判断移动方向修改速度方向
+            if(!horOnObject){
+                //if ( moveForward || moveBackward ) velocity.z -= direction.z * speed * delta;
+                if ( moveLeft || moveRight ) velocity.x -= direction.x * speed * delta;
+            }
+
+            if(!horOnObjectF){
+                if ( moveForward || moveBackward ) velocity.z -= direction.z * speed * delta;
+                //if ( moveLeft || moveRight ) velocity.x -= direction.x * speed * delta;
+            }
+
+            //复制相机的位置
+            downRaycaster.ray.origin.copy( control.position );
+            //获取相机靠下10的位置
+            downRaycaster.ray.origin.y -= 10;
+            //判断是否停留在了立方体上面
+            //intersections.length物体上表面的高度减去down射线端点的高度，由于down射线是(0,-1,0)，当控制器在物体上表面上，射线会穿进表面
+            //所以intersections.length会大于零，因此可以跳，
+            const intersections = downRaycaster.intersectObjects( scene.children, true );
+            const onObject = intersections.length > 0;
+
+            if ( onObject === true ) {
+                velocity.y = Math.max( 0, velocity.y );
+                canJump = true;
+            }
+
+            // new behavior
+            controls.moveRight(  -velocity.x * delta );
+            controls.moveForward(  -velocity.z * delta );
+            control.position.y += ( velocity.y * delta );
+
+            //防止第一人称跑到地板下
+            if ( control.position.y < -120 ) {
+                velocity.y = 0;
+                control.position.y = -120;
+                canJump = true;
+            }
+        }
+        prevTime = time;
+    }
+
+    initPointerLockControls();
+
+    function render() {
+        requestAnimationFrame(render);
+
+        const h = 0.5, v = 0.5, w = 0.5, s = 0.5;
+        for (let i = 0; i < flags.length; i++) {
+            for (let y = 0; y < segH + 1; y++) {
+                for (let x = 0; x < segW + 1; x++) {
+                    const index = x + y * (segW + 1);
+                    const vertex = flags[i].geometry.vertices[index];
+                    const time = Date.now() * s / 100;
+                    vertex.z = Math.sin(h * x + v * y - time) * w * x / 4;
+                }
+            }
+            flags[i].geometry.verticesNeedUpdate = true;
+        }
+        pointerLockControlsRender();
+        renderer.render(scene, camera);
+    }
+    render()
+
 }
