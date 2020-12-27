@@ -16,7 +16,6 @@ def cnn_model(input_shape):
     # the first
     model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=5, strides=(1, 1),
                                      padding='same', activation=tf.nn.relu, input_shape=input_shape))
-
     model.add(tf.keras.layers.MaxPool2D(pool_size=(2, 2), strides=(2, 2), padding='valid'))
     model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=3, strides=(1, 1), padding='same', activation=tf.nn.relu))
     model.add(tf.keras.layers.MaxPool2D(pool_size=(2, 2), strides=(2, 2), padding='valid'))
@@ -58,9 +57,6 @@ def train_model(train_images, train_labels, test_images, test_labels):
         if target == label:
             cnt += 1
     print("correct prediction of total : %.2f" % (cnt / len(test_images)))
-
-    # save model
-    model.save('mnist-model.h5')
 
 
 def main():

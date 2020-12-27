@@ -9,7 +9,7 @@ def linear_regression(x_train, x_predict, y_train, y_predict):
     line.fit(x_train, y_train)
     # using model to predict
     y_pre = line.predict(x_predict)
-    # judge the scores of model predict
+    # judge the scores of model predict using R^2
     print(line.score(x_train, y_train))
     # draw the picture
     plt.subplot(211)
