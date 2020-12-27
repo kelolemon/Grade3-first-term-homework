@@ -2,6 +2,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.metrics import r2_score
 
 
 def linear_regression(x_train, x_predict, y_train, y_predict):
@@ -10,7 +11,7 @@ def linear_regression(x_train, x_predict, y_train, y_predict):
     # using model to predict
     y_pre = line.predict(x_predict)
     # judge the scores of model predict using R^2
-    print(line.score(x_train, y_train))
+    print(r2_score(y_predict, y_pre))
     # draw the picture
     plt.subplot(211)
     plt.plot(y_predict, label='true')

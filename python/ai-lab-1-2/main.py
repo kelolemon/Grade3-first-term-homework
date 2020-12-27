@@ -6,17 +6,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def logistic_regression(x_train, x_predict, y_train, y_predict):
-    logistic_reg = linear_model.LogisticRegression(solver='liblinear')
-    logistic_reg.fit(x_train, y_train)
-    plt.subplot(313)
+# draw the decision boundary
+def plot_decision_boundary(model, x_train):
     h = .02
     x_min, x_max = x_train[:, 0].min() - .5, x_train[:, 0].max() + .5
     y_min, y_max = x_train[:, 1].min() - .5, x_train[:, 1].max() + .5
     xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-    zz = logistic_reg.predict(np.c_[xx.ravel(), yy.ravel()])
+    zz = model.predict(np.c_[xx.ravel(), yy.ravel()])
+    zz = zz.reshape(xx.shape)
     custom_cmap = ListedColormap(['#EF9A9A', '#FFF59D', '#90CAF9'])
-    plt.pcolormesh(xx, yy, zz.reshape(xx.shape), cmap=custom_cmap, shading='auto')
+    plt.pcolormesh(xx, yy, zz, cmap=custom_cmap, shading='auto')
+
+
+def logistic_regression(x_train, x_predict, y_train, y_predict):
+    logistic_reg = linear_model.LogisticRegression(solver='newton-cg')
+    logistic_reg.fit(x_train, y_train)
+    plt.subplot(313)
+    plot_decision_boundary(logistic_reg, x_train)
     setosa_sample = x_train[y_train == 0, :]
     versicolor_sample = x_train[y_train == 1, :]
     virginica_sample = x_train[y_train == 2, :]
