@@ -32,6 +32,7 @@ func main() {
 
 	api.Post("/file", src.GetFileList)
 
-	_ = app.Run(iris.Addr(":15551"))
+	api.Post("/spider", src.UseSpider)
+	_ = app.Run(iris.Addr(":18231"))
 
 }
