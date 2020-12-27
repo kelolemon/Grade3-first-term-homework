@@ -1,11 +1,14 @@
 from sklearn import datasets
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import precision_score
 from sklearn.metrics import precision_recall_curve
+from sklearn.model_selection import train_test_split
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
 from matplotlib.colors import ListedColormap
+from random import shuffle
 
 
 # draw the decision boundary
@@ -23,14 +26,11 @@ def plot_decision_boundary(model, x_train):
 def main():
     # load the datasets and separate the test and train data
     data_set = datasets.load_iris()
-    x_train = data_set.data[:130, 0:2]
-    y_train = data_set.target[:130]
-    x_test = data_set.data[130:, 0:2]
-    y_test = data_set.target[130:]
-
+    x_train, x_test, y_train, y_test = train_test_split(data_set.data[:, 0:2], data_set.target, train_size=130)
     # set the model and train the data
     clf = SVC(C=0.8, kernel='rbf', gamma=20, decision_function_shape='ovr')
     clf.fit(x_train, y_train)
+
     plt.subplot(211)
     plot_decision_boundary(clf, x_train)
     my_cmap = ListedColormap(['g', 'r', 'b'])
@@ -38,10 +38,16 @@ def main():
     plt.subplot(212)
 
     # get the accuracy, precision and recall
-    print('高斯核函数SVM的精度为:{}'.format(accuracy_score(y_test, clf.predict(x_test))))
+    print('the svm accuracy:{}'.format(accuracy_score(y_test, clf.predict(x_test))))
+    print('the svm macro recall:{}'.format(recall_score(y_test, clf.predict(x_test), average='macro')))
+    print('the svm macro precision:{}'.format(precision_score(y_test, clf.predict(x_test), average='macro')))
+    print('the svm micro recall:{}'.format(recall_score(y_test, clf.predict(x_test), average='macro')))
+    print('the svm micro precision:{}'.format(precision_score(y_test, clf.predict(x_test), average='macro')))
     precision, recall, _ = precision_recall_curve(y_test, clf.predict(x_test), pos_label=2)
     plt.xlabel('Recall')
     plt.ylabel('Precision')
+    print(precision, recall)
+    print(y_test, clf.predict(x_test))
     plt.figure(1)
     plt.plot(precision, recall)
     plt.show()

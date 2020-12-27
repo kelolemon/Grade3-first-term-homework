@@ -8,7 +8,6 @@ from matplotlib.colors import ListedColormap
 from sklearn.model_selection import train_test_split
 
 
-# 3. build svm.LinearSVC
 # draw the decision boundary
 def plot_decision_boundary(model, x_train):
     h = .02
@@ -29,16 +28,19 @@ def main():
     # 2. draw
     plt.subplot(211)
     plt.scatter(data[:, 0], data[:, 1], c=label)
+
     plt.subplot(212)
 
     # set the test and train data and stand the data
     data_train, data_test, label_train, label_test = train_test_split(data, label, test_size=1 / 12, random_state=0)
 
+    # 3. build svm.LinearSVC
     # Hard Margin SVM : C = 10**9  Soft Margin SVM: C = 0.01
-    svc = LinearSVC(C=0.01)
+    svc = LinearSVC(C=0.001)
     svc.fit(data_train, label_train)
     print("The accuracy is:")
     print(accuracy_score(label_test, svc.predict(data_test)))
+
     plot_decision_boundary(svc, data_train)
     plt.scatter(data_train[label_train == 0, 0], data_train[label_train == 0, 1], color='red')
     plt.scatter(data_train[label_train == 1, 0], data_train[label_train == 1, 1], color='blue')
