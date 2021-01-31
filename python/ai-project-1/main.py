@@ -1,13 +1,20 @@
 from sklearn import linear_model
 from sklearn.svm import SVR
+from sklearn import tree
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPRegressor
-from sklearn.metrics import r2_score
+from sklearn import metrics
 import matplotlib.pyplot as plt
 import pandas as pd
-import tensorflow as tf
 import numpy as np
-from sklearn import utils
+
+
+def mse_metrics(y_test, y_predict):
+    return metrics.mean_squared_error(y_test, y_predict)
+
+
+def r_mse_metrics(y_test, y_predict):
+    return np.sqrt(metrics.mean_squared_error(y_test, y_predict))
 
 
 def load_data():
@@ -48,15 +55,17 @@ def linear_regression(x_train, x_test, y_train, y_test):
     line.fit(x_train, y_train)
     y_predict = line.predict(x_test)
     draw_compare_line(y_test, y_predict)
-    print(line.score(x_train, y_train))
+    print("mse:{}".format(mse_metrics(y_test, y_predict)))
+    print("rmse:{}".format(+ r_mse_metrics(y_test, y_predict)))
 
 
 def svr_regression(x_train, x_test, y_train, y_test):
-    clf = SVR()
+    clf = SVR(kernel='rbf')
     clf.fit(x_train, y_train)
     y_predict = clf.predict(x_test)
     draw_compare_line(y_test, y_predict)
-    print(clf.score(x_train, y_train))
+    print("mse:{}".format(mse_metrics(y_test, y_predict)))
+    print("rmse:{}".format(+ r_mse_metrics(y_test, y_predict)))
 
 
 def neural_network_regression(x_train, x_test, y_train, y_test):
@@ -64,15 +73,28 @@ def neural_network_regression(x_train, x_test, y_train, y_test):
     mpl.fit(x_train, y_train)
     y_predict = mpl.predict(x_test)
     draw_compare_line(y_test, y_predict)
-    print(mpl.score(x_train, y_train))
+    print("mse:{}".format(mse_metrics(y_test, y_predict)))
+    print("rmse:{}".format(+ r_mse_metrics(y_test, y_predict)))
+
+
+def decision_tree(x_train, x_test, y_train, y_test):
+    clf = tree.DecisionTreeRegressor()
+    clf.fit(x_train, y_train)
+    y_predict = clf.predict(x_test)
+    draw_compare_line(y_test, y_predict)
+    print("mse:{}".format(mse_metrics(y_test, y_predict)))
+    print("rmse:{}".format(+ r_mse_metrics(y_test, y_predict)))
 
 
 def main():
     x_0_set, x_1_set, x_2_set, y_set = load_data()
-    # x_train, x_test, y_train, y_test = use_one_features(x_0_set, y_set)
-    # x_train, x_test, y_train, y_test = use_two_features(x_1_set, x_2_set, y_set)
     x_train, x_test, y_train, y_test = use_three_features(x_0_set, x_1_set, x_2_set, y_set)
-    neural_network_regression(x_train, x_test, y_train, y_test)
+    # plt.scatter(x_2_set, x_0_set, c=y_set)
+    # plt.show()
+    svr_regression(x_train, x_test, y_train, y_test)
+    # linear_regression(x_train, x_test, y_train, y_test)
+    # neural_network_regression(x_train, x_test, y_train, y_test)
+    # decision_tree(x_train, x_test, y_train, y_test)
 
 
 if __name__ == '__main__':
